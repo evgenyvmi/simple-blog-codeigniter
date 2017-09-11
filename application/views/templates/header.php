@@ -30,9 +30,38 @@
 					<li class="nav-item">
 						<a class="nav-link" href="<?php echo base_url('blog'); ?>">Blog</a>
 					</li>
+					<?php if($this->session->userdata('is_admin')) : ?>
+					<li class="nav-item ">
+						<a class="nav-link text-success" href="<?php echo base_url('users'); ?>">Users</a>
+					</li>
+					<?php endif; ?>
 				</ul>
 				<div class="form-inline my-2 my-lg-0">
-					<a class="btn btn-outline-success my-2 my-sm-0" href="#">Login</a>
+				<ul class="navbar-nav mr-auto">
+					<?php if(!$this->session->userdata('logged_in')) : ?>
+			            <li><a class="nav-link" href="<?php echo base_url(); ?>users/login">Login</a></li>
+			            <li><a class="nav-link" href="<?php echo base_url(); ?>users/register">Register</a></li>
+			          <?php endif; ?>
+			          <?php if($this->session->userdata('logged_in')) : ?>
+			            <li><a class="nav-link" href="<?php echo base_url(); ?>posts/create">Create Post</a></li>
+			            <li><a class="nav-link" href="<?php echo base_url(); ?>users/logout">Logout</a></li>
+			        <?php endif; ?>
+			    </ul>
 				</div>
 			</div>
 		</nav>
+		<?php if($this->session->flashdata('user_registered')): ?>
+        <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_registered').'</p>'; ?>
+      <?php endif; ?>
+
+      <?php if($this->session->flashdata('login_failed')): ?>
+        <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('login_failed').'</p>'; ?>
+      <?php endif; ?>
+
+      <?php if($this->session->flashdata('user_loggedin')): ?>
+        <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedin').'</p>'; ?>
+      <?php endif; ?>
+
+       <?php if($this->session->flashdata('user_loggedout')): ?>
+        <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedout').'</p>'; ?>
+      <?php endif; ?>

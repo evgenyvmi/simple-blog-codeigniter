@@ -4,7 +4,7 @@
 		{
 
 			$data['title'] = 'Posts';
-
+			$data['users'] = $this->user_model->get_users();
 			$data['posts'] = $this->blog_model->get_posts();
 			$this->load->view('templates/header');
 			$this->load->view('blog/index', $data);

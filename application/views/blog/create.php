@@ -1,7 +1,5 @@
 <h2 class="py-5"><?= $title; ?></h2>
 
-<p class="alert alert-danger"><?php echo validation_errors(); ?></p>
-
 <?php echo form_open_multipart('blog/create'); ?>
 <div class="form col-sm-10 col-md-8">
   <div class="form-group">
