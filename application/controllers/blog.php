@@ -51,6 +51,8 @@
 
 			$data['title'] = 'Edit';
 
+			$this->form_validation->set_rules('title', 'Title', 'required');
+			$this->form_validation->set_rules('text', 'Text', 'required');
 			$this->load->view('templates/header');
 			$this->load->view('blog/edit', $data);
 			$this->load->view('templates/footer');

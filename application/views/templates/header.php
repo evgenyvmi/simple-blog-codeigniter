@@ -43,7 +43,7 @@
 			            <li><a class="nav-link" href="<?php echo base_url(); ?>users/register">Register</a></li>
 			          <?php endif; ?>
 			          <?php if($this->session->userdata('logged_in')) : ?>
-			            <li><a class="nav-link" href="<?php echo base_url(); ?>posts/create">Create Post</a></li>
+			            <li><a class="nav-link" href="<?php echo base_url(); ?>blog/create">Create Post</a></li>
 			            <li><a class="nav-link" href="<?php echo base_url(); ?>users/logout">Logout</a></li>
 			        <?php endif; ?>
 			    </ul>

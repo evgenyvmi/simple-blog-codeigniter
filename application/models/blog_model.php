@@ -25,7 +25,7 @@
 				'title' => $this->input->post('title'),
 				'slug' => $slug,
 				'text' => $this->input->post('text'),
-			);
+				'user_id' => $this->session->userdata('user_id'));
 			return $this->db->insert('posts', $data);
 		}
 		public function delete_post($id){
